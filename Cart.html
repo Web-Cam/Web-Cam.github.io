@@ -1,0 +1,130 @@
+<!--DOCTYPE html>
+<!Yogi Schlesinger>
+<!COP 3834C-01 Web Application>
+<!Bonus Project>
+<!11/28/18-->
+<html>
+<title> Shopping Cart </title>
+<h1>Shopping Cart</h1>
+<style>
+
+p {
+	font-size: 30px
+}
+
+.button2 {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button2 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button2 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button2:hover span {
+  padding-right: 25px;
+}
+
+.button2:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.button3 {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button3 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button3 span:after {
+  content: '\00AB';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.button3:hover span {
+  padding-left: 25px;
+}
+
+.button3:hover span:after {
+  opacity: 1;
+  left: 0;
+}
+</style>
+<body>
+<fieldset style="width:300px">
+<p id = "p1"></p>
+</fieldset>
+<button class="button3" button id = "back" style="vertical-align:middle"><span>Go Back </span></button>
+<button class="button2" button id = "checkout" style="vertical-align:middle"><span>Checkout </span></button>
+
+
+
+<script>
+
+
+
+var queryString = decodeURIComponent(window.location.search);
+queryString = queryString.substring(1);
+var queries = queryString.split("&");
+var item1 = queries[0];
+var item2 = queries[1];
+
+document.getElementById("p1").innerHTML = item1 + "<br>" + item2;;
+
+document.getElementById("back").onclick = function() {
+  alert("Your item(s) count have been reset to 0.");
+  window.location.href = "HomePage.html";
+};
+
+document.getElementById("checkout").onclick = function() {
+  var queryString = "?Grilled Stuffed Nacho x " + item1 + "&Baja Blast Freeze x " + item2;
+
+  window.location.href = "Checkout.html" + queryString;
+};
+
+</script>
+
+</body>
+</html>

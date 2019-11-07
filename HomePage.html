@@ -1,0 +1,154 @@
+<!--DOCTYPE html>
+<!Yogi Schlesinger>
+<!COP 3834C-01 Web Application>
+<!Bonus Project>
+<!11/28/18-->
+<html>
+<title> Home Page </title>
+<h1>Quick Food Delivery
+<style>
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 32px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    cursor: pointer;
+	float:
+}
+
+.button1 {
+	background-color: #4CAF50;
+    color: white;
+}
+
+.button1:hover {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #4CAF50;
+}
+
+
+.button2 {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button2 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button2 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button2:hover span {
+  padding-right: 25px;
+}
+
+.button2:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+</style>
+<body>
+
+<p>
+<img src="gsn.jpg" alt="gsn" style="width:360px;height:360px;"><div id="d1">Grilled Stuffed Nacho: 0</div><br>
+<button type="button" class="button button1" button id = "add" onclick="add()">Add</button>
+<button type="button" class="button button1" button id = "remove" onclick="remove()">Remove</button><br>
+
+<img src="baja.png" alt="baja" style="width:360px;height:360px;"><div id="d2">Baja Blast Freeze: 0</div><br>
+<button type="button" class="button button1" button id = "add2" onclick="add2()">Add</button>
+<button type="button" class="button button1" button id = "remove2" onclick="remove2()">Remove</button><br>
+
+
+
+
+</p>
+<button class="button2" button id = "checkout" style="vertical-align:middle"><span>Cart</span></button>
+
+<script>
+
+var item1 = 0;
+var item2 = 0;
+var x = document.getElementById("remove");
+var x2 = document.getElementById("remove2");
+
+if (item1 == 0) {x.style.visibility = "hidden";}
+if (item2 == 0) {x2.style.visibility = "hidden";}
+
+
+
+document.getElementById("add").onclick = function() {
+  item1++;
+  x.style.visibility = "visible";
+  document.getElementById("d1").innerHTML = "Grilled Stuffed Nacho: " + item1;
+};
+
+document.getElementById("remove").onclick = function() {
+	if (item1 == 0 ){
+		x.style.visibility = "hidden";
+	} else {
+		item1--;
+		document.getElementById("d1").innerHTML = "Grilled Stuffed Nacho: " + item1;
+		if (item1 == 0 ){
+			x.style.visibility = "hidden";
+		}
+	}
+};
+
+document.getElementById("add2").onclick = function() {
+  item2++;
+  document.getElementById("d2").innerHTML = "Baja Blast Freeze: " + item2;
+  x2.style.visibility = "visible"; 
+};
+
+document.getElementById("remove2").onclick = function() {
+	if (item2 == 0 ){
+		x2.style.visibility = "hidden";
+	} else {
+		item2--;
+		document.getElementById("d2").innerHTML = "Baja Blast Freeze: " + item2;
+		if (item2 == 0 ){
+			x2.style.visibility = "hidden";
+		}
+	}
+};
+
+
+document.getElementById("checkout").onclick = function() {
+  var queryString = "?Grilled Stuffed x " + item1 + "&Baja Blast Freeze x " + item2;
+
+  window.location.href = "Cart.html" + queryString;
+};
+
+</script>
+
+</body>
+</html>
