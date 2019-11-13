@@ -118,7 +118,8 @@ document.getElementById("back").onclick = function() {
 
 document.getElementById("checkout").onclick = function() {
   var queryString = "?Grilled Stuffed Nacho x " + item1 + "&Baja Blast Freeze x " + item2;
-
+   var queryString2 = "?Price x " + item1 * 2.99 + "&Baja Blast Freeze x " + item2 * 1.00;
+ 
   window.location.href = "Checkout.html" + queryString;
 };
 
